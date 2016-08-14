@@ -1,0 +1,18 @@
+{
+	"name": "nodejs-redirect",
+	"description": "Simple redirect service",
+	"repository": "https://github.com/sharvit/nodejs-redirect.git",
+	"logo": "https://worldvectorlogo.com/logos/nodejs-icon.svg",
+	"keywords": ["redirect"],
+	"addons": ["newrelic"],
+	"env": {
+		"REDIRECTION_URL": {
+			"description": "Redirect all requests to this url",
+			"value": "https://www.google.com"
+		},
+		"CHAIN_REQUEST_URL": {
+			"description": "Extend the redirection url by the request route (from.com/a/b -> google.com/a/b)",
+			"value": "false"
+		}
+	}
+}
