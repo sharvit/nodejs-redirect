@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-redirect",
+  "version": "1.0.0",
+  "description": "Simple redirect service",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharvit/nodejs-redirect.git"
+  },
+  "keywords": [
+    "redirect"
+  ],
+  "author": "Avi Sharvit <sharvita@gmail.com> (https://sharvit.github.io)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharvit/nodejs-redirect/issues"
+  },
+  "homepage": "https://github.com/sharvit/nodejs-redirect#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "newrelic": "^1.29.0"
+  }
+}
