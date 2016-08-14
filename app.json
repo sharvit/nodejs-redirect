@@ -13,6 +13,9 @@
 		"CHAIN_REQUEST_URL": {
 			"description": "Extend the redirection url by the request route (from.com/a/b -> google.com/a/b)",
 			"value": "false"
+		},
+		"NEW_RELIC_NO_CONFIG_FILE": {
+			"value": "true"
 		}
 	}
 }
