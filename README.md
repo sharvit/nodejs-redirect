@@ -4,8 +4,22 @@ Simple redirect service with NodeJS
 
 ## Installation
 
-To redirect all requests to example.com:
+Install the app package
 
 ```
-heroku config:add REDIRECTION_URL=http://example.com
+npm install
+```
+
+## Running
+
+Simply run the npm package with the REDIRECTION_URL environmen variables
+
+```
+REDIRECTION_URL=https://google.com npm start
+```
+
+Extend the redirection url by the request route (from.com/a/b -> google.com/a/b)
+
+```
+REDIRECTION_URL=https://google.com CHAIN_REQUEST_URL=true npm start
 ```
