@@ -1,27 +1,81 @@
 {
   "name": "nodejs-redirect",
-  "version": "1.0.0",
+  "version": "0.0.0-semantic-release",
   "description": "Simple redirect service",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sharvit/nodejs-redirect.git"
-  },
-  "keywords": [
-    "redirect"
-  ],
-  "author": "Avi Sharvit <sharvita@gmail.com> (https://sharvit.github.io)",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sharvit/nodejs-redirect/issues"
+  "repository": "https://github.com/sharvit/nodejs-redirect",
+  "author": {
+    "name": "Avi Sharvit",
+    "email": "sharvita@gmail.com",
+    "url": "https://sharvit.github.io"
   },
-  "homepage": "https://github.com/sharvit/nodejs-redirect#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "start": "./bin/nodejs-redirect.js",
+    "prebuild": "rimraf dist",
+    "build": "yarn webpack:build && yarn docs:build",
+    "webpack:build": "webpack --mode production --config ./config/webpack.config.js",
+    "webpack:develop": "webpack --mode development --watch --watch-poll --config ./config/webpack.config.js",
+    "docs:build": "esdoc -c ./config/esdoc.config.js",
+    "docs:develop": "watch \"yarn docs:build\" . --ignoreDirectoryPattern='/node_modules|docs|dist|coverage|.git|.nyc*./'",
+    "test:watch": "jest --config ./config/jest.config.js --watch",
+    "test": "jest --config ./config/jest.config.js --coverage",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "lint": "eslint ./src",
+    "lint:commit": "commitlint -e --config ./commitlint.config.js",
+    "lint:commit-travis": "commitlint-travis --config ./commitlint.config.js",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
+  },
+  "bin": "bin/nodejs-redirect.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "bin"
+  ],
   "dependencies": {
     "express": "^4.14.0",
     "newrelic": "^1.29.0"
-  }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/travis-cli": "^8.1.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "commitlint-config-cz": "^0.12.0",
+    "coveralls": "^3.0.2",
+    "cz-conventional-changelog": "^3.0.2",
+    "esdoc": "^1.1.0",
+    "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-standard-plugin": "^1.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^3.0.0",
+    "semantic-release": "^15.13.1",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "keywords": [
+    "redirect"
+  ]
 }
