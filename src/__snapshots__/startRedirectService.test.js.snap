@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should start a redirect service 1`] = `
+Array [
+  Array [
+    "Redirection server listening on port: 3000",
+  ],
+  Array [
+    "Redirecting all requests to: to-somewhere",
+  ],
+  Array [
+    "Chaining requests url is: off",
+  ],
+]
+`;
+
+exports[`should start a redirect service with chain 1`] = `
+Array [
+  Array [
+    "Redirection server listening on port: 3000",
+  ],
+  Array [
+    "Redirecting all requests to: to-somewhere",
+  ],
+  Array [
+    "Chaining requests url is: on",
+  ],
+]
+`;
+
+exports[`should start a redirect service with custom port 1`] = `
+Array [
+  Array [
+    "Redirection server listening on port: 4000",
+  ],
+  Array [
+    "Redirecting all requests to: to-somewhere",
+  ],
+  Array [
+    "Chaining requests url is: off",
+  ],
+]
+`;
